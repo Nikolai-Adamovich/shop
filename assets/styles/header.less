@@ -1,0 +1,44 @@
+header {
+    padding: 10px 0;
+    color: #ffffff;
+    background: #00796b;
+    user-select: none;
+    .inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    nav {
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+    .user {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .user-name {
+            position: relative;
+            .user-menu {
+                position: absolute;
+                right: 0;
+                bottom: 10px;
+            }
+        }
+    }
+    a, .link {
+        display: block;
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: #ffffff;
+        cursor: pointer;
+        background: #00796b;
+        transition: 0.3s;
+
+        &:hover {
+            background: #00695c
+        }
+    }
+}

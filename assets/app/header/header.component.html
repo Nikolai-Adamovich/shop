@@ -1,0 +1,32 @@
+<header>
+    <div class="inner">
+
+        <nav>
+            <ul>
+                <li><a routerLink="/" routerLinkActive="active"><i class="fa fa-home"></i> Home</a></li>
+            </ul>
+        </nav>
+
+        <div class="user">
+            <div *ngIf="userService.username" class="username link">
+
+                <i class="fa fa-user"></i> {{userService.username}} <i class="fa fa-caret-down"></i>
+
+                <ul class="user-menu">
+                    <li class="link">
+                        <i class="fa fa-cog-spin"></i> Settings
+                    </li>
+                    <li class="link" (click)="logout()">
+                        <i class="fa fa-sign-out"></i> Log out
+                    </li>
+                </ul>
+
+            </div>
+
+            <a *ngIf="!userService.username" routerLink="/login" routerLinkActive="active"><i class="fa fa-sign-in"></i> Login</a>
+
+            <div class="link"><i class="fa fa-shopping-cart"></i></div>
+        </div>
+
+    </div>
+</header>

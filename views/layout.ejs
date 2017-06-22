@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+
+    <title><%= typeof title == 'undefined' ? 'New Sails App' : title %></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="/styles/importer.css">
+
+    <script src="/node_modules/core-js/client/shim.min.js"></script>
+    <script src="/node_modules/zone.js/dist/zone.js"></script>
+    <script src="/node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+
+</head>
+
+<body>
+
+<%- body %>
+
+<script src="/js/dependencies/sails.io.js"></script>
+<script src="/js/systemjs.config.js"></script>
+
+<script>
+    System.import('app').catch(function (err) {
+        console.error(err);
+    });
+</script>
+
+</body>
+</html>
