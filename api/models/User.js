@@ -34,7 +34,7 @@ module.exports = {
             autoIncrement: true
         },
         toJSON: function () {
-            var user = this.toObject();
+            let user = this.toObject();
             delete user.password;
             //delete user.posts;
             return user;

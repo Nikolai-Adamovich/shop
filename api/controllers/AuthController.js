@@ -5,9 +5,9 @@
  * @description	:: Contains logic for handling requests.
  */
 
-let passport = require('passport');
+var passport = require('passport');
 
-let AuthController = {
+var AuthController = {
 
     index: function (req, res) {
         res.view();

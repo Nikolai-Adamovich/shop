@@ -6,6 +6,21 @@
  */
 let bcrypt = require('bcryptjs');
 let passport = require('passport');
+
+let GoogleStrategy = require('passport-google-oauth20').Strategy;
+
+passport.use(new GoogleStrategy({
+        clientID: '123-456-789',
+        clientSecret: 'shhh-its-a-secret',
+        callbackURL: "http://www.example.com/auth/google/callback"
+    },
+    function(accessToken, refreshToken, profile, cb) {
+        User.findOrCreate({ googleId: profile.id }, function (err, user) {
+            return cb(err, user);
+        });
+    }
+));
+
 let LocalStrategy = require('passport-local').Strategy;
 
 passport.use(new LocalStrategy(
@@ -84,6 +99,7 @@ module.exports = {
             });
         });
     },
+
     login: function (req, res) {
         passport.authenticate('local', function(err, user, info) {
             if (err) {
@@ -104,10 +120,33 @@ module.exports = {
             }
         })(req, res);
     },
+
+    loginGoogle: function (req, res) {
+        passport.authenticate('google', function(err, user, info) {
+            if (err) {
+                //res.status(400);
+                return res.send(err);
+            } else if (!user) {
+                //res.status(400);
+                return res.send(info);
+            } else {
+                req.login(user, function(err) {
+                    if (err) {
+                        //res.status(400);
+                        return res.send(info);
+                    } else {
+                        return res.send(user);
+                    }
+                });
+            }
+        })(req, res);
+    },
+
     logout: function (req, res) {
         req.logout();
         res.send({message: ['You have been logged out.', 'See you later, ' + req.param('username') + '.']});
     },
+
     isAuthenticated: function(req, res) {
         if (req.isAuthenticated()) {
             return res.send({username: req.user[0].username, email: req.user[0].email, createdAt: req.user[0].createdAt, id: req.user[0].id});
@@ -117,6 +156,7 @@ module.exports = {
             return res.send({error: 'You are not authenticated.'});
         }
     },
+
     addPost: function (req, res) {
         User.findOne(req.param('author'), function (err, user) {
             let response = {};
@@ -143,6 +183,7 @@ module.exports = {
             }
         });
     },
+
     getCount: function (req, res) {
         User.count().exec(function (err, count) {
             if (err) {
@@ -152,6 +193,7 @@ module.exports = {
             return res.send({count: count});
         })
     },
+
     getNameById: function (req, res) {
         User.findOne({id: req.param('id')}).exec(function (err, user) {
             return res.send({login: user.login});
