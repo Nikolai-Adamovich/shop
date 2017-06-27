@@ -40,9 +40,6 @@ module.exports.routes = {
     },
     '/login': {
         view: 'homepage'
-    },
-    '/google255a12966d661ac5.html': {
-        view: 'google255a12966d661ac5.html'
     }
 
     /***************************************************************************
