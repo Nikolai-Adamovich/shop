@@ -23,9 +23,4 @@ nbproject
 .idea
 .node_history
 .history
-typings
-assets/app/*.js
-assets/app/*.map
-assets/app/*/*.js
-assets/app/*/*.map
 package-lock.json
