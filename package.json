@@ -49,6 +49,7 @@
     "typescript": "^2.3.4"
   },
   "scripts": {
-    "start": "tsc && node app.js"
+    "start": "run tsc && node app.js",
+    "tsc": "tsc"
   }
 }
