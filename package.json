@@ -46,7 +46,8 @@
   "main": "app.js",
   "devDependencies": {
     "@types/core-js": "^0.9.41",
-    "typescript": "^2.3.4"
+    "typescript": "^2.3.4",
+    "typings": "^2.1.1"
   },
   "scripts": {
     "start": "typings install && tsc && node app.js"
