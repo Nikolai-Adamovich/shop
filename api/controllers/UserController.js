@@ -128,7 +128,7 @@ module.exports = {
     googleCallback: function (req, res) {
         passport.authenticate(
             'google',
-            { failureRedirect: '/login' },
+            { failureRedirect: '/' },
             function(req, res) {
                 // Successful authentication, redirect home.
                 res.redirect('/');

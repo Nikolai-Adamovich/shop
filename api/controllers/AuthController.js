@@ -65,7 +65,7 @@ var AuthController = {
     },
 
     'google': function (req, res) {
-        passport.authenticate('google', { failureRedirect: '/', scope:['https://www.googleapis.com/auth/plus.login','https://www.googleapis.com/auth/userinfo.profile'] },
+        passport.authenticate('google', { failureRedirect: '/login', scope:['https://www.googleapis.com/auth/plus.login','https://www.googleapis.com/auth/userinfo.profile'] },
             function (err, user) {
                 req.logIn(user, function (err) {
                     if (err) {
