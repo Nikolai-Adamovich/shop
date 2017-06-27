@@ -47,5 +47,8 @@
   "devDependencies": {
     "@types/core-js": "^0.9.41",
     "typescript": "^2.3.4"
+  },
+  "scripts": {
+    "start": "node app.js"
   }
 }

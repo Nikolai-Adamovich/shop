@@ -10,9 +10,9 @@ let passport = require('passport');
 let GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 passport.use(new GoogleStrategy({
-        clientID: '123-456-789',
-        clientSecret: 'shhh-its-a-secret',
-        callbackURL: "http://www.example.com/auth/google/callback"
+        clientID: ' 1027440485964-9nubjtltjl1k7oe2tv2ikdvvh7ob8he2.apps.googleusercontent.com ',
+        clientSecret: ' yJktAA7JX9Mqal45nC7HFZGT',
+        callbackURL: "https://angular-sails-shop.herokuapp.com//user/googleCallback"
     },
     function(accessToken, refreshToken, profile, cb) {
         User.findOrCreate({ googleId: profile.id }, function (err, user) {
@@ -122,24 +122,18 @@ module.exports = {
     },
 
     loginGoogle: function (req, res) {
-        passport.authenticate('google', function(err, user, info) {
-            if (err) {
-                //res.status(400);
-                return res.send(err);
-            } else if (!user) {
-                //res.status(400);
-                return res.send(info);
-            } else {
-                req.login(user, function(err) {
-                    if (err) {
-                        //res.status(400);
-                        return res.send(info);
-                    } else {
-                        return res.send(user);
-                    }
-                });
+        passport.authenticate('google', { scope: ['profile'] });
+    },
+
+    googleCallback: function (req, res) {
+        passport.authenticate(
+            'google',
+            { failureRedirect: '/login' },
+            function(req, res) {
+                // Successful authentication, redirect home.
+                res.redirect('/');
             }
-        })(req, res);
+        );
     },
 
     logout: function (req, res) {
