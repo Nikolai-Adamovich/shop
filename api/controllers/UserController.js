@@ -12,7 +12,7 @@ let GoogleStrategy = require('passport-google-oauth20').Strategy;
 passport.use(new GoogleStrategy({
         clientID: ' 1027440485964-9nubjtltjl1k7oe2tv2ikdvvh7ob8he2.apps.googleusercontent.com ',
         clientSecret: ' yJktAA7JX9Mqal45nC7HFZGT',
-        callbackURL: "https://angular-sails-shop.herokuapp.com//user/googleCallback"
+        callbackURL: "https://angular-sails-shop.herokuapp.com/user/googleCallback"
     },
     function(accessToken, refreshToken, profile, cb) {
         User.findOrCreate({ googleId: profile.id }, function (err, user) {
