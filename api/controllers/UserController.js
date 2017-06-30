@@ -7,20 +7,6 @@
 let bcrypt = require('bcryptjs');
 let passport = require('passport');
 
-let GoogleStrategy = require('passport-google-oauth20').Strategy;
-
-passport.use(new GoogleStrategy({
-        clientID: '1027440485964-9nubjtltjl1k7oe2tv2ikdvvh7ob8he2.apps.googleusercontent.com',
-        clientSecret: 'yJktAA7JX9Mqal45nC7HFZGT',
-        callbackURL: "https://angular-sails-shop.herokuapp.com/user/googleCallback"
-    },
-    function(accessToken, refreshToken, profile, cb) {
-        User.findOrCreate({ googleId: profile.id }, function (err, user) {
-            return cb(err, user);
-        });
-    }
-));
-
 let LocalStrategy = require('passport-local').Strategy;
 
 passport.use(new LocalStrategy(
@@ -119,21 +105,6 @@ module.exports = {
                 });
             }
         })(req, res);
-    },
-
-    loginGoogle: function (req, res) {
-        passport.authenticate('google', { scope: ['profile'] });
-    },
-
-    googleCallback: function (req, res) {
-        passport.authenticate(
-            'google',
-            { failureRedirect: '/' },
-            function(req, res) {
-                // Successful authentication, redirect home.
-                res.redirect('/');
-            }
-        );
     },
 
     logout: function (req, res) {

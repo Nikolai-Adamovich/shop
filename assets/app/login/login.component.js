@@ -51,26 +51,6 @@ var LoginComponent = (function () {
             });
         }
     };
-    LoginComponent.prototype.loginGoogle = function () {
-        var _this = this;
-        this.http.get('/user/loginGoogle').subscribe(function (res) {
-            var data = res.json();
-            if (data.error) {
-                _this.userService.username = '';
-                console.log("Error: " + data.error);
-            }
-            else {
-                _this.userService.username = data.username;
-                _this.userService.email = data.email;
-                _this.userService.createdAt = data.createdAt;
-                _this.userService.updatedAt = data.updatedAt;
-                _this.userService.id = data.id;
-                _this.router.navigate(['/']);
-            }
-        }, function (err) {
-            console.log(err.json());
-        });
-    };
     LoginComponent.prototype.register = function (username, email, password) {
         if (username && email && password) {
             this.http.post('/user/createUser', { username: username, email: email, password: password }).subscribe(function (res) {

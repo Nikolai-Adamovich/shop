@@ -3,27 +3,43 @@
 
         <nav>
             <ul>
-                <li><a routerLink="/" routerLinkActive="active"><i class="fa fa-home"></i> Home</a></li>
+                <li>
+                    <a routerLink="/" routerLinkActive="active">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/catalog" routerLinkActive="active">
+                        <i class="fa fa-th"></i>
+                        <span>Catalog</span>
+                    </a>
+                </li>
             </ul>
         </nav>
 
         <div class="user">
             <div *ngIf="userService.username" class="username link">
 
-                <i class="fa fa-user"></i> {{userService.username}} <i class="fa fa-caret-down"></i>
+                <i class="fa fa-user"></i> <span>{{userService.username}}</span> <i class="fa fa-caret-down"></i>
 
                 <ul class="user-menu">
                     <li class="link">
-                        <i class="fa fa-cog-spin"></i> Settings
+                        <i class="fa fa-cog-spin"></i>
+                        <span>Settings</span>
                     </li>
                     <li class="link" (click)="logout()">
-                        <i class="fa fa-sign-out"></i> Log out
+                        <i class="fa fa-sign-out"></i>
+                        <span>Log out</span>
                     </li>
                 </ul>
 
             </div>
 
-            <a *ngIf="!userService.username" routerLink="/login" routerLinkActive="active"><i class="fa fa-sign-in"></i> Login</a>
+            <a *ngIf="!userService.username" routerLink="/login" routerLinkActive="active">
+                <i class="fa fa-sign-in"></i>
+                <span>Login</span>
+            </a>
 
             <div class="link"><i class="fa fa-shopping-cart"></i></div>
         </div>

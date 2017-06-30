@@ -38,6 +38,12 @@ module.exports.routes = {
     '/home': {
         view: 'homepage'
     },
+    '/catalog': {
+        view: 'homepage'
+    },
+    '/catalog/*': {
+        view: 'homepage'
+    },
     '/login': {
         view: 'homepage'
     }

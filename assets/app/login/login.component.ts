@@ -48,29 +48,6 @@ export class LoginComponent implements OnInit{
         }
     }
 
-    loginGoogle() {
-        this.http.get('/user/loginGoogle').subscribe(
-            res => {
-                let data = res.json();
-                if (data.error) {
-                    this.userService.username = '';
-                    console.log(`Error: ${data.error}`)
-                } else {
-                    this.userService.username = data.username;
-                    this.userService.email = data.email;
-                    this.userService.createdAt = data.createdAt;
-                    this.userService.updatedAt = data.updatedAt;
-                    this.userService.id = data.id;
-
-                    this.router.navigate(['/']);
-                }
-            },
-            err => {
-                console.log(err.json());
-            }
-        );
-    }
-
     register(username, email, password) {
         if (username && email && password) {
             this.http.post('/user/createUser', {username: username, email: email, password: password}).subscribe(

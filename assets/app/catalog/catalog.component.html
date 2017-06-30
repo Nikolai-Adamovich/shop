@@ -1,0 +1,28 @@
+<div class="inner">
+
+    <div class="catalog">
+
+        <h2>Catalog</h2>
+
+        <div class="catalog-navigation">
+
+            <div class="categories">
+                <ul>
+                    <li *ngFor="let category of categories; let i = index" (mouseenter)="showSubcategories(i)">
+                        <span></span>
+                        {{category.name}}
+                    </li>
+                </ul>
+            </div>
+
+            <div class="subcategories">
+                <a *ngFor="let subcategory of subcategories" routerLink="/catalog/{{subcategory.url}}" routerLinkActive="active">
+                    <h3>{{subcategory.name}}</h3>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -10,17 +10,19 @@ import { routes }   from './app.routes';
 import { HeaderComponent }   from './header/header.component';
 import { LoginComponent }   from './login/login.component';
 import { HomeComponent }   from './home/home.component';
+import { CatalogComponent }   from './catalog/catalog.component';
+import { ProductSelectionComponent }   from './product-selection/product-selection.component';
 import { UserService } from './user.service';
 
 @NgModule({
-    declarations: [App, HeaderComponent, LoginComponent, HomeComponent],
+    declarations: [App, HeaderComponent, LoginComponent, HomeComponent, CatalogComponent, ProductSelectionComponent],
     imports:      [
         BrowserModule,
         FormsModule,
         HttpModule,
         RouterModule.forRoot(routes)
     ],
-    bootstrap:    [App],
+    bootstrap: [App],
     providers: [UserService]
 })
 
