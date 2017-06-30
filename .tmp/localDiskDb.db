@@ -1,0 +1,199 @@
+{
+  "data": {
+    "category": [
+      {
+        "name": "Computers"
+      },
+      {
+        "name": "Computer Parts"
+      },
+      {
+        "name": "Peripherals"
+      }
+    ],
+    "product": [],
+    "subcategory": [
+      {
+        "name": "Laptops",
+        "url": "laptop",
+        "parentCategory": "Computers"
+      },
+      {
+        "name": "Desktops",
+        "url": "desktop",
+        "parentCategory": "Computers"
+      },
+      {
+        "name": "Tablets",
+        "url": "tablet",
+        "parentCategory": "Computers"
+      },
+      {
+        "name": "Monoblocks",
+        "url": "monoblock",
+        "parentCategory": "Computers"
+      },
+      {
+        "name": "Processors",
+        "url": "processor",
+        "parentCategory": "Computer Parts"
+      },
+      {
+        "name": "Video Cards",
+        "url": "video-card",
+        "parentCategory": "Computer Parts"
+      },
+      {
+        "name": "Mother Boards",
+        "url": "mother-board",
+        "parentCategory": "Computer Parts"
+      },
+      {
+        "name": "RAMs",
+        "url": "ram",
+        "parentCategory": "Computer Parts"
+      },
+      {
+        "name": "HDDs",
+        "url": "hdd",
+        "parentCategory": "Computer Parts"
+      },
+      {
+        "name": "SSDs",
+        "url": "ssd",
+        "parentCategory": "Computer Parts"
+      },
+      {
+        "name": "Cases",
+        "url": "case",
+        "parentCategory": "Computer Parts"
+      },
+      {
+        "name": "Power Supplies",
+        "url": "power-supply",
+        "parentCategory": "Computer Parts"
+      },
+      {
+        "name": "Monitors",
+        "url": "monitor",
+        "parentCategory": "Peripherals"
+      },
+      {
+        "name": "Acoustics",
+        "url": "acoustic",
+        "parentCategory": "Peripherals"
+      },
+      {
+        "name": "Headphones",
+        "url": "headphone",
+        "parentCategory": "Peripherals"
+      },
+      {
+        "name": "Printers",
+        "url": "printer",
+        "parentCategory": "Peripherals"
+      },
+      {
+        "name": "Webcams",
+        "url": "webcam",
+        "parentCategory": "Peripherals"
+      }
+    ],
+    "user": [
+      {
+        "username": "admin",
+        "email": "a@a.aa",
+        "password": "$2a$10$x2owGSYx0dapkDLR4icrIuUh2rjZxmBniG.0fbhSFRT6h4ZgNXgTu",
+        "createdAt": "2017-06-22T14:52:50.664Z",
+        "updatedAt": "2017-06-22T14:52:50.664Z",
+        "id": 1
+      }
+    ]
+  },
+  "schema": {
+    "category": {
+      "name": {
+        "type": "string",
+        "unique": true,
+        "primaryKey": true
+      }
+    },
+    "product": {
+      "name": {
+        "type": "string",
+        "unique": true
+      },
+      "price": {
+        "type": "float"
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "unique": true,
+        "primaryKey": true
+      },
+      "parentSubcategory": {
+        "type": "string",
+        "model": "subcategory",
+        "foreignKey": true,
+        "alias": "parentSubcategory"
+      }
+    },
+    "subcategory": {
+      "name": {
+        "type": "string",
+        "unique": true,
+        "primaryKey": true
+      },
+      "url": {
+        "type": "string",
+        "unique": true
+      },
+      "parentCategory": {
+        "type": "string",
+        "model": "category",
+        "foreignKey": true,
+        "alias": "parentCategory"
+      }
+    },
+    "user": {
+      "username": {
+        "type": "string",
+        "unique": true,
+        "primaryKey": true
+      },
+      "email": {
+        "type": "string",
+        "unique": true
+      },
+      "password": {
+        "type": "string"
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "unique": true
+      }
+    }
+  },
+  "counters": {
+    "user": {
+      "id": 1
+    },
+    "category": {},
+    "product": {},
+    "subcategory": {}
+  }
+}

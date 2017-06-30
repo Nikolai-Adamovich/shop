@@ -5,7 +5,7 @@ config/local.js
 node_modules
 bower_components
 
-.tmp
+.tmp/public
 dump.rdb
 
 lib-cov
