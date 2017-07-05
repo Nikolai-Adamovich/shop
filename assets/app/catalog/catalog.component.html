@@ -2,15 +2,12 @@
 
     <div class="catalog">
 
-        <h2>Catalog</h2>
-
         <div class="catalog-navigation">
 
             <div class="categories">
                 <ul>
-                    <li *ngFor="let category of categories; let i = index" (mouseenter)="showSubcategories(i)">
-                        <span></span>
-                        {{category.name}}
+                    <li *ngFor="let category of categories; let i = index" [ngClass]="{'active': i === 0}" (mouseenter)="showSubcategories(i); changeActiveClass($event)">
+                        <span>{{category.name}}</span>
                     </li>
                 </ul>
             </div>

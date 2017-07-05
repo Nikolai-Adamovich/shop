@@ -46,4 +46,11 @@ export class CatalogComponent implements OnInit {
         this.subcategories = this.categories[index].subcategories;
     }
 
+    private changeActiveClass(event) {
+        let li = $(event.target);
+
+        li.addClass('active');
+        li.siblings('li').removeClass('active');
+    }
+
 }

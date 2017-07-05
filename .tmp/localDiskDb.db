@@ -11,7 +11,26 @@
         "name": "Peripherals"
       }
     ],
-    "product": [],
+    "product": [
+      {
+        "name": "Xiaomi Mi Book Air 13,3 Silver",
+        "price": 800,
+        "id": 1,
+        "parentSubcategory": "laptop"
+      },
+      {
+        "name": "Apple MacBook Air 13'' (2016) [MMGF2]",
+        "price": 970,
+        "id": 2,
+        "parentSubcategory": "laptop"
+      },
+      {
+        "name": "Apple MacBook Pro 13'' Retina (2015) [MF839]",
+        "price": 1400,
+        "id": 3,
+        "parentSubcategory": "laptop"
+      }
+    ],
     "subcategory": [
       {
         "name": "Laptops",
@@ -148,12 +167,12 @@
     "subcategory": {
       "name": {
         "type": "string",
-        "unique": true,
-        "primaryKey": true
+        "unique": true
       },
       "url": {
         "type": "string",
-        "unique": true
+        "unique": true,
+        "primaryKey": true
       },
       "parentCategory": {
         "type": "string",
@@ -193,7 +212,9 @@
       "id": 1
     },
     "category": {},
-    "product": {},
+    "product": {
+      "id": 3
+    },
     "subcategory": {}
   }
 }

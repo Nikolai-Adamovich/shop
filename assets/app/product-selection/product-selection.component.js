@@ -11,11 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+var router_1 = require("@angular/router");
 var ProductSelectionComponent = (function () {
-    function ProductSelectionComponent(http) {
+    function ProductSelectionComponent(http, router) {
         this.http = http;
+        this.router = router;
     }
     ProductSelectionComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var urlArray = this.router.url.split('/');
+        var subcategory = urlArray[urlArray.length - 1];
+        this.http.get('/subcategory/' + subcategory).subscribe(function (res) {
+            var data = res.json();
+            if (data.error) {
+                console.log("Error: " + data.error);
+            }
+            else {
+                _this.products = data.products;
+            }
+        }, function (err) {
+            console.log(err.json());
+        });
     };
     return ProductSelectionComponent;
 }());
@@ -24,6 +40,6 @@ ProductSelectionComponent = __decorate([
         selector: 'product-selection',
         templateUrl: './app/product-selection/product-selection.component.html'
     }),
-    __metadata("design:paramtypes", [http_1.Http])
+    __metadata("design:paramtypes", [http_1.Http, router_1.Router])
 ], ProductSelectionComponent);
 exports.ProductSelectionComponent = ProductSelectionComponent;

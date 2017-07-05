@@ -35,6 +35,11 @@ var CatalogComponent = (function () {
     CatalogComponent.prototype.showSubcategories = function (index) {
         this.subcategories = this.categories[index].subcategories;
     };
+    CatalogComponent.prototype.changeActiveClass = function (event) {
+        var li = $(event.target);
+        li.addClass('active');
+        li.siblings('li').removeClass('active');
+    };
     return CatalogComponent;
 }());
 CatalogComponent = __decorate([

@@ -10,13 +10,13 @@ module.exports = {
         name: {
             type: 'string',
             required: true,
-            unique: true,
-            primaryKey: true
+            unique: true
         },
         url: {
             type: 'string',
             required: true,
-            unique: true
+            unique: true,
+            primaryKey: true
         },
         parentCategory: {
             model: 'category'
