@@ -20,6 +20,7 @@ var home_component_1 = require("./home/home.component");
 var catalog_component_1 = require("./catalog/catalog.component");
 var product_selection_component_1 = require("./product-selection/product-selection.component");
 var product_component_1 = require("./product/product.component");
+var admin_product_component_1 = require("./admin/admin-product/admin-product.component");
 var user_service_1 = require("./user.service");
 var AppModule = (function () {
     function AppModule() {
@@ -28,7 +29,7 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        declarations: [app_1.App, header_component_1.HeaderComponent, login_component_1.LoginComponent, home_component_1.HomeComponent, catalog_component_1.CatalogComponent, product_selection_component_1.ProductSelectionComponent, product_component_1.ProductComponent],
+        declarations: [app_1.App, header_component_1.HeaderComponent, login_component_1.LoginComponent, home_component_1.HomeComponent, catalog_component_1.CatalogComponent, product_selection_component_1.ProductSelectionComponent, product_component_1.ProductComponent, admin_product_component_1.AdminProductComponent],
         imports: [
             platform_browser_1.BrowserModule,
             forms_1.FormsModule,

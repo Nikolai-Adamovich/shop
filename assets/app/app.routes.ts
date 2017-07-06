@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { ProductSelectionComponent } from './product-selection/product-selection.component';
 import { ProductComponent }   from './product/product.component';
+import { AdminProductComponent }   from './admin/admin-product/admin-product.component';
 
 export const routes: Routes = [
     {
@@ -29,6 +30,10 @@ export const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent
+    },
+    {
+        path: 'admin/admin-product',
+        component: AdminProductComponent
     },
     {
         path: '**',

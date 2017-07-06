@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 
 interface ICategory {
     name: string;
-    subcategories: ISubcategory[]
+    subcategories: ISubcategory[];
 }
 
 interface ISubcategory {

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 interface ICategory {
     name: string;
-    subcategories: ISubcategory[]
+    subcategories: ISubcategory[];
 }
 
 interface ISubcategory {

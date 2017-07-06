@@ -55,14 +55,14 @@ module.exports = {
                 return res.send(err);
             }
             if (user) {
-                errorMessage.error.push('Username "' + req.param('username') + '" is already registered');
+                errorMessage.error.push('Username "' + req.param('username') + '" has already been registered');
             }
             User.findOne({email: req.param('email')}, function(err, email) {
                 if (err) {
                     return res.send(err);
                 }
                 if (email) {
-                    errorMessage.error.push('E-mail "' + req.param('email') + '" is already registered');
+                    errorMessage.error.push('E-mail "' + req.param('email') + '" has already been registered');
                 }
                 if (errorMessage.error.length > 0) {
                     //res.status(400);

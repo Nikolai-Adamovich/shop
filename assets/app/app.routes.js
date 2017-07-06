@@ -5,6 +5,7 @@ var login_component_1 = require("./login/login.component");
 var catalog_component_1 = require("./catalog/catalog.component");
 var product_selection_component_1 = require("./product-selection/product-selection.component");
 var product_component_1 = require("./product/product.component");
+var admin_product_component_1 = require("./admin/admin-product/admin-product.component");
 exports.routes = [
     {
         path: '',
@@ -29,6 +30,10 @@ exports.routes = [
     {
         path: 'login',
         component: login_component_1.LoginComponent
+    },
+    {
+        path: 'admin/admin-product',
+        component: admin_product_component_1.AdminProductComponent
     },
     {
         path: '**',
