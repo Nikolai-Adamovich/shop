@@ -8,7 +8,16 @@ interface ICategory {
 
 interface ISubcategory {
     name: string;
-    products: object[]
+    url: string;
+    parentCategory: ICategory;
+    products: IProduct[];
+}
+
+interface IProduct {
+    name: string;
+    url: string;
+    price: number;
+    parentSubcategory: ISubcategory;
 }
 
 @Component({

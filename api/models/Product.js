@@ -12,6 +12,12 @@ module.exports = {
             required: true,
             unique: true
         },
+        url: {
+            type: 'string',
+            required: true,
+            unique: true,
+            primaryKey: true
+        },
         price: {
             type: 'float',
             required: true
@@ -21,12 +27,6 @@ module.exports = {
         },
         updatedAt: {
             type: 'datetime'
-        },
-        id: {
-            type: 'integer',
-            autoIncrement: true,
-            unique: true,
-            primaryKey: true
         },
         parentSubcategory: {
             model: 'subcategory'

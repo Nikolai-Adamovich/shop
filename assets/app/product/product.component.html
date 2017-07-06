@@ -1,0 +1,12 @@
+<div class="inner">
+
+    <div class="product" *ngIf="product">
+
+        <h2>Product</h2>
+
+        <span>{{product.name}}</span>
+        <span>{{product.price | currency:'USD':true:'1.0'}}</span>
+
+    </div>
+
+</div>

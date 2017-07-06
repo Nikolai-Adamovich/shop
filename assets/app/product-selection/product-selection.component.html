@@ -4,14 +4,12 @@
 
         <h2>Product Selection</h2>
 
-        <div class="products">
-            <ul>
-                <li *ngFor="let product of products">
-                    <span>{{product.name}}</span>
-                    <span>${{product.price}}</span>
-                </li>
-            </ul>
-        </div>
+        <ul class="products">
+            <li *ngFor="let product of products">
+                <a routerLink="/catalog/{{product.parentSubcategory}}/{{product.url}}" routerLinkActive="active">{{product.name}}</a>
+                <a routerLink="/catalog/{{product.parentSubcategory}}/{{product.url}}" routerLinkActive="active">{{product.price | currency:'USD':true:'1.0'}}</a>
+            </li>
+        </ul>
 
     </div>
 

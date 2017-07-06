@@ -4,6 +4,7 @@ var home_component_1 = require("./home/home.component");
 var login_component_1 = require("./login/login.component");
 var catalog_component_1 = require("./catalog/catalog.component");
 var product_selection_component_1 = require("./product-selection/product-selection.component");
+var product_component_1 = require("./product/product.component");
 exports.routes = [
     {
         path: '',
@@ -18,20 +19,12 @@ exports.routes = [
         component: catalog_component_1.CatalogComponent
     },
     {
-        path: 'catalog',
-        component: product_selection_component_1.ProductSelectionComponent,
-        children: [
-            {
-                path: '',
-                redirectTo: 'catalog',
-                pathMatch: 'full'
-            },
-            {
-                path: '**',
-                component: product_selection_component_1.ProductSelectionComponent,
-                pathMatch: 'full'
-            }
-        ]
+        path: 'catalog/:subcategory',
+        component: product_selection_component_1.ProductSelectionComponent
+    },
+    {
+        path: 'catalog/:subcategory/:product',
+        component: product_component_1.ProductComponent
     },
     {
         path: 'login',

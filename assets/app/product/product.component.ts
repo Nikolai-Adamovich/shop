@@ -22,27 +22,27 @@ interface IProduct {
 }
 
 @Component({
-    selector: 'product-selection',
-    templateUrl: './app/product-selection/product-selection.component.html'
+    selector: 'product',
+    templateUrl: './app/product/product.component.html'
 })
 
-export class ProductSelectionComponent implements OnInit {
+export class ProductComponent implements OnInit {
 
     constructor(private http: Http, private router: Router) {}
 
-    products: IProduct[];
+    product: IProduct;
 
     ngOnInit() {
         let urlArray = this.router.url.split('/');
-        let subcategory = urlArray[urlArray.length - 1];
+        let productURL = urlArray[urlArray.length - 1];
 
-        this.http.get('/subcategory/' + subcategory).subscribe(
+        this.http.get('/product/' + productURL).subscribe(
             res => {
                 let data = res.json();
                 if (data.error) {
                     console.log(`Error: ${data.error}`);
                 } else {
-                    this.products = data.products;
+                    this.product = data;
                 }
             },
             err => {
