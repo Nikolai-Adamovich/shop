@@ -14,6 +14,7 @@ var http_1 = require("@angular/http");
 var CatalogComponent = (function () {
     function CatalogComponent(http) {
         this.http = http;
+        this.activeItemIndex = 0;
     }
     CatalogComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -35,10 +36,8 @@ var CatalogComponent = (function () {
     CatalogComponent.prototype.showSubcategories = function (index) {
         this.subcategories = this.categories[index].subcategories;
     };
-    CatalogComponent.prototype.changeActiveClass = function (event) {
-        var li = $(event.target);
-        li.addClass('active');
-        li.siblings('li').removeClass('active');
+    CatalogComponent.prototype.changeActiveClass = function (index) {
+        this.activeItemIndex = index;
     };
     return CatalogComponent;
 }());

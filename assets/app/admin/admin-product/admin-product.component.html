@@ -5,7 +5,7 @@
         <h2>Admin Product</h2>
 
         <input type="text" placeholder="Subcategory" [(ngModel)]="subcategory">
-        <input type="text" placeholder="Name" [(ngModel)]="name">
+        <input type="text" placeholder="Name" [(ngModel)]="name" (input)="makeSlug(name)">
         <input type="text" placeholder="URL" [(ngModel)]="url">
         <input type="text" placeholder="Price" [(ngModel)]="price">
         <button (click)="createProduct(subcategory, name, url, price)">Save</button>

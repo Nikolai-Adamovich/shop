@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
+import * as slugg from 'slugg';
 
 interface ICategory {
     name: string;
@@ -30,8 +31,14 @@ export class AdminProductComponent implements OnInit {
     constructor(private http: Http) {}
 
     products: IProduct[];
+    url: string;
 
-    ngOnInit() {}
+    ngOnInit() {
+    }
+
+    makeSlug(name) {
+        this.url = slugg(name);
+    }
 
     createProduct(subcategory, name, url, price) {
         if (subcategory && name && url && price) {

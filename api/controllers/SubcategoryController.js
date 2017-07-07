@@ -7,10 +7,7 @@
 
 module.exports = {
     addProduct: function (req, res) {
-        console.log(req.param('subcategory'), req.param('name'), req.param('url'), req.param('price'));
         Subcategory.findOne({name: req.param('subcategory')}, function (err, subcategory) {
-            console.log('=================================================');
-            console.log(err, subcategory);
             let response = {};
             if (err) {
                 res.status(400);

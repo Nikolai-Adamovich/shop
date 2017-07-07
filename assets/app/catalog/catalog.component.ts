@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
+//import * as $ from 'jquery';
 
 interface ICategory {
     name: string;
@@ -31,6 +32,7 @@ export class CatalogComponent implements OnInit {
 
     categories: ICategory[];
     subcategories: ISubcategory[];
+    activeItemIndex: number = 0;
 
     ngOnInit() {
         this.http.get('/category').subscribe(
@@ -55,11 +57,8 @@ export class CatalogComponent implements OnInit {
         this.subcategories = this.categories[index].subcategories;
     }
 
-    private changeActiveClass(event) {
-        let li = $(event.target);
-
-        li.addClass('active');
-        li.siblings('li').removeClass('active');
+    private changeActiveClass(index) {
+        this.activeItemIndex = index;
     }
 
 }

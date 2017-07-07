@@ -6,7 +6,7 @@
 
             <div class="categories">
                 <ul>
-                    <li *ngFor="let category of categories; let i = index" [ngClass]="{'active': i === 0}" (mouseenter)="showSubcategories(i); changeActiveClass($event)">
+                    <li *ngFor="let category of categories; let i = index" [ngClass]="{'active': i === activeItemIndex}" (mouseenter)="showSubcategories(i); changeActiveClass(i)">
                         <span>{{category.name}}</span>
                     </li>
                 </ul>

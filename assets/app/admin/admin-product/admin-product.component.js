@@ -11,11 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+var slugg = require("slugg");
 var AdminProductComponent = (function () {
     function AdminProductComponent(http) {
         this.http = http;
     }
-    AdminProductComponent.prototype.ngOnInit = function () { };
+    AdminProductComponent.prototype.ngOnInit = function () {
+    };
+    AdminProductComponent.prototype.makeSlug = function (name) {
+        this.url = slugg(name);
+    };
     AdminProductComponent.prototype.createProduct = function (subcategory, name, url, price) {
         if (subcategory && name && url && price) {
             this.http.post('/subcategory/addProduct', { subcategory: subcategory, name: name, url: url, price: price }).subscribe(function (res) {
