@@ -45,6 +45,14 @@
         "parentSubcategory": "laptop",
         "createdAt": "2017-07-07T13:15:21.760Z",
         "updatedAt": "2017-07-07T13:15:21.760Z"
+      },
+      {
+        "name": "Lenovo Y700-15 [80NV00C8PB]",
+        "url": "lenovo-y700-15",
+        "price": 875,
+        "parentSubcategory": "laptop",
+        "createdAt": "2017-07-07T14:34:17.885Z",
+        "updatedAt": "2017-07-07T14:34:17.885Z"
       }
     ],
     "subcategory": [
