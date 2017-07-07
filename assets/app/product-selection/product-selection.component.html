@@ -4,6 +4,8 @@
 
         <h2>Product Selection</h2>
 
+        <button (click)="getProducts()">Get Products</button>
+
         <ul class="products">
             <li *ngFor="let product of products">
                 <a routerLink="/catalog/{{product.parentSubcategory}}/{{product.url}}" routerLinkActive="active">{{product.name}}</a>

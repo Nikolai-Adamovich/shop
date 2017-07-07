@@ -16,6 +16,7 @@ var ProductSelectionComponent = (function () {
     function ProductSelectionComponent(http, router) {
         this.http = http;
         this.router = router;
+        this.pageNumber = 1;
     }
     ProductSelectionComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -28,6 +29,21 @@ var ProductSelectionComponent = (function () {
             }
             else {
                 _this.products = data.products;
+            }
+        }, function (err) {
+            console.log(err.json());
+        });
+    };
+    ProductSelectionComponent.prototype.getProducts = function () {
+        var _this = this;
+        this.http.post('/product/getProducts', { 'pageNumber': this.pageNumber, 'count': 2 }).subscribe(function (res) {
+            var data = res.json();
+            if (data.error) {
+                console.log("Error: " + data.error);
+            }
+            else {
+                console.log(data);
+                _this.pageNumber++;
             }
         }, function (err) {
             console.log(err.json());

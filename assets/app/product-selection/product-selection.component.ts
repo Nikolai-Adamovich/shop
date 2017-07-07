@@ -51,4 +51,23 @@ export class ProductSelectionComponent implements OnInit {
         );
     }
 
+    pageNumber: number = 1;
+
+    private getProducts() {
+        this.http.post('/product/getProducts', {'pageNumber': this.pageNumber, 'count': 2}).subscribe(
+            res => {
+                let data = res.json();
+                if (data.error) {
+                    console.log(`Error: ${data.error}`);
+                } else {
+                    console.log(data);
+                    this.pageNumber++;
+                }
+            },
+            err => {
+                console.log(err.json());
+            }
+        );
+    }
+
 }
